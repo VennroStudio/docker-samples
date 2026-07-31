@@ -1,0 +1,21 @@
+name: ${PROJECT_NAME}
+
+services:
+  wordpress:
+    image: wordpress:php8.4-apache
+    container_name: wordpress-container
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: ${DB_HOST}:${DB_PORT}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASS}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+    volumes:
+      - ./wordpress:/var/www/html:cached
+    networks:
+      - network-name
+
+networks:
+  network-name:
+    name: ${NETWORK}
+    external: true
