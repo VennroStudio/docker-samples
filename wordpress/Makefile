@@ -29,4 +29,4 @@ logs: ## Посмотреть логи
 
 ##@ База данных
 create-db: ## Создать базу данных для WordPress
-	docker exec -it $(DB_CONTAINER) mariadb -u $(DB_USER) -p$(DB_PASSWORD) -e "CREATE DATABASE IF NOT EXISTS $(DB_NAME) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+	docker exec -it $(DB_HOST) mariadb -u $(DB_USER) -p$(DB_PASS) -e "CREATE DATABASE IF NOT EXISTS $(DB_NAME) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
