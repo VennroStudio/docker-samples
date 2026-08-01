@@ -1,0 +1,36 @@
+{
+  "name": "@mono/admin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check-types && NODE_ENV=production vite build",
+    "check-types": "tsc -b",
+    "lint": "npm run lint:code && npm run lint:fsd",
+    "lint:code": "oxlint",
+    "lint:fsd": "steiger ./src",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/roboto": "^5.2.10",
+    "@tanstack/react-query": "^5.101.2",
+    "@mono/api-client": "*",
+    "@mono/app-runtime": "*",
+    "@mono/theme": "*",
+    "@mono/ui": "*",
+    "lucide-react": "^1.22.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router": "^8.1.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "tailwindcss": "^4.3.2",
+    "vite": "^8.1.0"
+  }
+}

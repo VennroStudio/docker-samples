@@ -1,0 +1,30 @@
+{
+  "name": "@mono/app-runtime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./query": "./src/shared/query/index.ts",
+    "./router": "./src/shared/router/index.ts",
+    "./setup": "./src/shared/setup/index.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.json",
+    "lint": "npm run lint:code && npm run lint:fsd",
+    "lint:code": "oxlint src",
+    "lint:fsd": "steiger ./src"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.101.2",
+    "@mono/api-client": "*",
+    "react-router": "^8.1.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
+}

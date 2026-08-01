@@ -1,0 +1,32 @@
+@source '../../ui/src';
+@source '../../app-runtime/src';
+
+@theme {
+  --font-sans: 'Roboto Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #6ee7b7;
+  --color-surface: #18181b;
+  --color-surface-hover: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #09090b;
+  color: #ffffff;
+}
+
+body:not(.app-loading) {
+  overflow-y: scroll;
+}

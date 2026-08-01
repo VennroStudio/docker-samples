@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "exactOptionalPropertyTypes": true,
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@mono/api-client": ["./packages/api-client/src/shared/api/index.ts"],
+      "@mono/api-client/endpoints": [
+        "./packages/api-client/src/shared/config/apiEndpoints.ts"
+      ],
+      "@mono/app-runtime/query": [
+        "./packages/app-runtime/src/shared/query/index.ts"
+      ],
+      "@mono/app-runtime/router": [
+        "./packages/app-runtime/src/shared/router/index.ts"
+      ],
+      "@mono/app-runtime/setup": [
+        "./packages/app-runtime/src/shared/setup/index.ts"
+      ],
+      "@mono/ui/button": ["./packages/ui/src/shared/ui/button/index.ts"],
+      "@mono/ui/lib": ["./packages/ui/src/shared/lib/index.ts"],
+      "@mono/ui/page-loader": [
+        "./packages/ui/src/shared/ui/page-loader/index.ts"
+      ],
+      "@mono/ui/surface": ["./packages/ui/src/shared/ui/surface/index.ts"]
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2023",
+    "verbatimModuleSyntax": true
+  }
+}

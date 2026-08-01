@@ -1,0 +1,22 @@
+name: mono-react-ts
+
+services:
+  mono-web-app:
+    image: ${REGISTRY}/mono-web-container:${IMAGE_TAG}
+    container_name: mono-web-container
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+
+  mono-admin-app:
+    image: ${REGISTRY}/mono-admin-container:${IMAGE_TAG}
+    container_name: mono-admin-container
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

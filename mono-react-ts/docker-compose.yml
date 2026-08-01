@@ -1,0 +1,51 @@
+name: ${PROJECT_NAME:-mono-react-ts}
+
+services:
+  mono-web-app:
+    container_name: mono-web-container
+    build:
+      context: .
+      dockerfile: docker/development/Dockerfile
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/apps/web/node_modules
+      - /app/apps/admin/node_modules
+      - /app/packages/api-client/node_modules
+      - /app/packages/app-runtime/node_modules
+      - /app/packages/ui/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      VITE_API_URL: ${VITE_API_URL:-http://api.local/v1}
+    command: npm run dev --workspace=@mono/web -- --host 0.0.0.0
+    networks:
+      - proxy
+
+  mono-admin-app:
+    container_name: mono-admin-container
+    build:
+      context: .
+      dockerfile: docker/development/Dockerfile
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/apps/web/node_modules
+      - /app/apps/admin/node_modules
+      - /app/packages/api-client/node_modules
+      - /app/packages/app-runtime/node_modules
+      - /app/packages/ui/node_modules
+    ports:
+      - "5174:5174"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      VITE_API_URL: ${VITE_API_URL:-http://api.local/v1}
+    command: npm run dev --workspace=@mono/admin -- --host 0.0.0.0
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    name: ${NETWORK:-proxy}
+    external: true

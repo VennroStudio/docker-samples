@@ -1,0 +1,1 @@
+export { setupWebApp } from './setupWebApp'
