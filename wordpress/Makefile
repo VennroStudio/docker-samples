@@ -11,6 +11,11 @@ help: ## Показать список команд
 		$(MAKEFILE_LIST)
 	@echo ""
 
+##@ .env
+
+env: ## Безопасно скопировать .env из example
+	@[ -f .env ] || cp .env.example .env
+
 ##@ Контейнеры
 install: ## Запустить WordPress
 	docker-compose -f $(COMPOSE_FILE) up -d
